@@ -1,8 +1,13 @@
 import React from 'react'
+import Todo_app from './components/Todo_app'
+import Footer from './components/Footer'
 
 function App() {
   return (
-    <div>App</div>
+    <div className=' grid place-content-center'>
+      <Todo_app />
+      <Footer />
+    </div>
   )
 }
 
