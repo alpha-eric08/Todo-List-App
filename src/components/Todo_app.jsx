@@ -2,11 +2,11 @@ import React from 'react'
 import Header from './Header'
 import Addtask from './Addtask'
 
-const Todo_app = () => {
+const Todo_app = ({setDarkMode,darkMode}) => {
   return (
-    <div className='bg-white text-black w-[500px] px-4 py-5 rounded-xl mt-20 shadow-xl shadow-gray-400'>
-      <Header />
-      <Addtask />
+    <div className= {`${darkMode ? "bg-[#1a103d] text-white shadow-gray-400" : "bg-white text-black shadow-black"}  w-[500px] px-4 py-5 rounded-xl mt-20 shadow-xl `}>
+      <Header setDarkMode={setDarkMode}/>
+      <Addtask setDarkMode={setDarkMode}/>
     </div>
   )
 }

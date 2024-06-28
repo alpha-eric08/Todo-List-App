@@ -5,16 +5,20 @@ const Addtask = () => {
 const [todolist, setTodo] =useState([]);
 const [newTask, setNewtask] =useState("");
 
+
 const handleChange = (event) => {
   setNewtask(event.target.value);
 };
 
 const newtodo = () => {
+  if(newTask === "") return
   const task = {
     id: todolist.length === 0 ? 1 : todolist[todolist.length-1].id + 1,
   taskName: newTask,
 };
   setTodo([...todolist, task]);
+  setNewtask("");
+
 };
 
 const deleteTask = (id) => {
@@ -24,7 +28,7 @@ const deleteTask = (id) => {
   return (
     <div className='mt-8 mb-12'>
         <div className='bg-blue-600 rounded-lg flex border-2 border-gray-300 mb-12'>
-            <input type="text" onChange={ handleChange } placeholder='New Task' className=' h-10 rounded-l-lg pl-2 w-full bg-gray-100 text-black'/>
+            <input type="text" onChange={ handleChange } value={newTask} placeholder='New Task' className=' h-10 rounded-l-lg pl-2 w-full bg-gray-100 text-black'/>
             <button className='text-white font-semibold px-4  hover:bg-blue-900 rounded-r-lg' onClick={ newtodo }>ADD</button>
         </div>
         <div>

@@ -3,11 +3,11 @@ import { IoMoonSharp } from "react-icons/io5";
 
 
 
-const Header = () => {
+const Header = (setDarkMode) => {
   return (
     <div className='flex justify-between text-lg'>
         <div>Todo App</div>
-        <div><IoMoonSharp /></div>
+        <button onClick={()=>setDarkMode(prv=>!prv)}><IoMoonSharp /></button>
     </div>
   )
 }
