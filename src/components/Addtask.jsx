@@ -10,8 +10,15 @@ const handleChange = (event) => {
 };
 
 const newtodo = () => {
-  const newtodos = [...todolist, newTask];
-  setTodo(newtodos);
+  const task = {
+    id: todolist.length === 0 ? 1 : todolist[todolist.length-1].id + 1,
+  taskName: newTask,
+};
+  setTodo([...todolist, task]);
+};
+
+const deleteTask = (id) => {
+  setTodo(todolist.filter((task) => task.id !== id))
 };
 
   return (
@@ -26,10 +33,10 @@ const newtodo = () => {
               <div className='flex justify-between bg-gray-200 text-black h-12 my-5 shadow-lg shadow-slate-700  rounded-lg text-2xl px-2'>
                 <div className='flex'>
                   <input type="checkbox" />
-                  <h1 className='mt-2 ml-2 text-lg'>{task}</h1>
+                  <h1 className='mt-2 ml-2 text-lg'>{task.taskName}</h1>
                 </div>
                 <div>
-                  <MdClose className='bg-blue-400 rounded-full text-white hover:bg-blue-950 cursor-pointer mt-2' size={30}/>
+                  <MdClose onClick={() => deleteTask(task.id)} className='bg-blue-400 rounded-full text-white hover:bg-blue-950 cursor-pointer mt-2' size={30}/>
                 </div>
               </div>
             );
